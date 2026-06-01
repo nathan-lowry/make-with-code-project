@@ -1,3 +1,4 @@
+// credit to yamjam for music
 namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
