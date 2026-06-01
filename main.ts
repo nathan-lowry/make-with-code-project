@@ -1,6 +1,9 @@
 namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
+
+
+
 function sendArrow (direction: string) {
     arrowSprite = sprites.create(img`
         1 
