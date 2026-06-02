@@ -22,5 +22,12 @@
         "arcade"
     ],
     "preferredEditor": "tsprj",
-    "theme": "bubblegum"
+    "theme": {
+        "skin": "zune",
+        "background-color": "#3e2adb",
+        "button-stroke": "#FF00FF",
+        "text-color": "#FFFFFF",
+        "button-fill": "#deadea",
+        "dpad-fill": "#deadea"
+    }
 }
