@@ -1,27 +1,7 @@
 namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    lowestYValue = 0
-    // stops from adding score, if array is equal or less than length zero
-    if (upArrow.length <= 0) {
-        return
-    }
-    // getting y value from Arrow
-    for (let i = 0; i <= upArrow.length - 1; i++) {
-        if (lowestYValue < upArrow[i].y) {
-            lowestYValue = upArrow[i].y
-            upArrow.removeAt(i)
-        }
-    }
-    // scoring
-    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
-    // animation
-    scoreboard2.setImage(assets.image`scoreboardBackground`)
-    scoreboard2.setImage(assets.image`sc2animated`)
-    pause(200)
-    scoreboard2.setImage(assets.image`scoreboardBackground`)
-})
+
 function sendArrow (direction: string) {
     arrowSprite = sprites.create(img`
         1 
@@ -29,6 +9,7 @@ function sendArrow (direction: string) {
     if (direction == "left") {
         arrowSprite.setImage(assets.image`leftArrow`)
         arrowSprite.x = 20
+        //puts sprite into array of a certain array
         leftArrow.push(arrowSprite)
     } else if (direction == "up") {
         arrowSprite.setImage(assets.image`upArrow`)
@@ -59,15 +40,48 @@ function startGame () {
     scoreboard4.setPosition(140, 80)
     info.setScore(0)
 }
+
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    lowestYValue = 0
+    // stops from adding score, if array is equal or less than length zero
+    if (upArrow.length <= 0) {
+        return
+    }
+    // getting y value from Arrow, if greater than current lowestYValue
+    // when it is done, it removes the closest  arrow to the cricle from the array
+    for (let i = 0; i < upArrow.length; i++) {
+        if (lowestYValue < upArrow[i].y) {
+            lowestYValue = upArrow[i].y
+ 
+        }
+       if (i == upArrow.length -1){
+            upArrow.removeAt(i)
+       }
+    }
+    // scoring
+    //80-lowestYValue is the position of the circle - position of the arrow
+    //easynessToGetPerfect is hoq much easier it is to get a smaller number(3, three times easier)
+    // 1, is there to make sure that you can't get more than 100 points
+    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
+    // animation
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
+    scoreboard2.setImage(assets.image`sc2animated`)
+    pause(200)
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
+})
+
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     lowestYValue = 0
     if (leftArrow.length <= 0) {
         return
     }
-    for (let l = 0; l <= leftArrow.length - 1; l++) {
-        if (lowestYValue < leftArrow[l].y) {
-            lowestYValue = leftArrow[l].y
-            leftArrow.removeAt(l)
+    for (let i = 0; i < upArrow.length; i++) {
+        if (lowestYValue < leftArrow[i].y) {
+            lowestYValue = leftArrow[i].y
+    
+        }
+        if (i == leftArrow.length - 1) {
+            leftArrow.removeAt(i)
         }
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
@@ -84,10 +98,13 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (rightArrow.length <= 0) {
         return
     }
-    for (let k = 0; k <= rightArrow.length - 1; k++) {
-        if (lowestYValue < rightArrow[k].y) {
-            lowestYValue = rightArrow[k].y
-            rightArrow.removeAt(k)
+    for (let i = 0; i < rightArrow.length; i++) {
+        if (lowestYValue < rightArrow[i].y) {
+            lowestYValue = rightArrow[i].y
+
+        }
+        if (i == rightArrow.length - 1) {
+            rightArrow.removeAt(i)
         }
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
@@ -101,10 +118,13 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (downArrow.length <= 0) {
         return
     }
-    for (let j = 0; j <= downArrow.length - 1; j++) {
-        if (lowestYValue < downArrow[j].y) {
-            lowestYValue = downArrow[j].y
-            downArrow.removeAt(j)
+    for (let i = 0; i < downArrow.length; i++) {
+        if (lowestYValue < downArrow[i].y) {
+            lowestYValue = downArrow[i].y
+
+        }
+        if (i == downArrow.length - 1) {
+            downArrow.removeAt(i)
         }
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
@@ -114,17 +134,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     scoreboard3.setImage(assets.image`scoreboardBackground`)
 })
 function startLevelZero () {
-    arrowList.removeAt(0)
-    leftArrow.removeAt(0)
-    upArrow.removeAt(0)
-    downArrow.removeAt(0)
-    rightArrow.removeAt(0)
     sendArrow("left")
-    pause(750)
+    pause(500)
     sendArrow("down")
-    pause(750)
+    pause(500)
     sendArrow("up")
-    pause(750)
+    pause(500)
     sendArrow("right")
 }
 let scoreboard4: Sprite = null
