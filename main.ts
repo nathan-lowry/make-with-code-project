@@ -28,6 +28,10 @@ function sendArrow(direction: string) {
 }
 
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
+    scoreboard2.setImage(assets.image`sc2animated`)
+    pause(200)
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
     lowestYValue = 0
     for (let i = 0; i < upArrow.length; i++) {
         if (lowestYValue < upArrow[i].y) {
@@ -38,6 +42,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    scoreboard3.setImage(assets.image`scoreboardBackground`)
+    scoreboard3.setImage(assets.image`sc3animated`)
+    pause(200)
+    scoreboard3.setImage(assets.image`scoreboardBackground`)
     lowestYValue = 0
     for (let i = 0; i < downArrow.length; i++) {
         if (lowestYValue < downArrow[i].y) {
@@ -48,6 +56,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    scoreboard4.setImage(assets.image`scoreboardBackground`)
+    scoreboard4.setImage(assets.image`sc4animated`)
+    pause(200)
+    scoreboard4.setImage(assets.image`scoreboardBackground`)
     lowestYValue = 0
     for (let i = 0; i < rightArrow.length; i++) {
         if (lowestYValue < rightArrow[i].y) {
@@ -60,6 +72,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 
 
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    scoreboard1.setImage(assets.image`scoreboardBackground`)
+    scoreboard1.setImage(assets.image`sc1animated`)
+    pause(200)
+    scoreboard1.setImage(assets.image`scoreboardBackground`)
     lowestYValue = 0
     for (let i = 0; i < leftArrow.length; i++) {
         if (lowestYValue < leftArrow[i].y) {

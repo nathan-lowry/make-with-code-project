@@ -107,6 +107,118 @@ fdddddddddddddddddddddddf
 . . . . . . . 7 . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image6":
+            case "sc1animated":return img`
+.......77777777777.......
+......7ddddddddddd7......
+....77ddddddddddddd77....
+...7ddddddddddddddddd7...
+..7ddddddddddddddddddd7..
+..7ddddddddddddddddddd7..
+.7ddddddddddddddddddddd7.
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+7ddddddddddddddddddddddd7
+.7ddddddddddddddddddddd7.
+..7ddddddddddddddddddd7..
+..7ddddddddddddddddddd7..
+...7ddddddddddddddddd7...
+....77ddddddddddddd77....
+......7ddddddddddd7......
+.......77777777777.......
+`;
+            case "image7":
+            case "sc2animated":return img`
+.......66666666666.......
+......6ddddddddddd6......
+....66ddddddddddddd66....
+...6ddddddddddddddddd6...
+..6ddddddddddddddddddd6..
+..6ddddddddddddddddddd6..
+.6ddddddddddddddddddddd6.
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+6ddddddddddddddddddddddd6
+.6ddddddddddddddddddddd6.
+..6ddddddddddddddddddd6..
+..6ddddddddddddddddddd6..
+...6ddddddddddddddddd6...
+....66ddddddddddddd66....
+......6ddddddddddd6......
+.......66666666666.......
+`;
+            case "image8":
+            case "sc3animated":return img`
+.......22222222222.......
+......2ddddddddddd2......
+....22ddddddddddddd22....
+...2ddddddddddddddddd2...
+..2ddddddddddddddddddd2..
+..2ddddddddddddddddddd2..
+.2ddddddddddddddddddddd2.
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+2ddddddddddddddddddddddd2
+.2ddddddddddddddddddddd2.
+..2ddddddddddddddddddd2..
+..2ddddddddddddddddddd2..
+...2ddddddddddddddddd2...
+....22ddddddddddddd22....
+......2ddddddddddd2......
+.....3.22222222222.......
+`;
+            case "image9":
+            case "sc4animated":return img`
+.......55555555555.......
+......5ddddddddddd5......
+....55ddddddddddddd55....
+...5ddddddddddddddddd5...
+..5ddddddddddddddddddd5..
+..5ddddddddddddddddddd5..
+.5ddddddddddddddddddddd5.
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+5ddddddddddddddddddddddd5
+.5ddddddddddddddddddddd5.
+..5ddddddddddddddddddd5..
+..5ddddddddddddddddddd5..
+...5ddddddddddddddddd5...
+....55ddddddddddddd55....
+......5ddddddddddd5......
+.......55555555555.......
+`;
         }
         return null;
     })
