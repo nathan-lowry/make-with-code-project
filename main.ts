@@ -22,6 +22,7 @@ function sendArrow(direction: string) {
         arrowSprite.x = 140
         rightArrow.push(arrowSprite)
     }
+    arrowSprite.setFlag(SpriteFlag.AutoDestroy, false)
     arrowSprite.y = 0
     arrowSprite.vy = 60
 }
@@ -113,3 +114,11 @@ let scoreboard1: Sprite = null
 let arrowSprite: Sprite = null
 startGame()
 startLevelZero()
+sprites.onDestroyed(SpriteKind.Arrow, function(arrowSpriteType: Sprite) {
+    console.log(arrowSpriteType)
+    for (let i = 0; i < leftArrow.length; i++) {
+        if (arrowSpriteType = leftArrow[i]) {
+            
+        }
+    }
+})
