@@ -141,6 +141,12 @@ function startLevelZero () {
     sendArrow("up")
     pause(500)
     sendArrow("right")
+    pause(500)
+    sendArrow("right")
+    pause(500)
+    sendArrow("right")
+    pause(500)
+        
 }
 let scoreboard4: Sprite = null
 let scoreboard3: Sprite = null
