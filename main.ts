@@ -1,7 +1,28 @@
 namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
-function sendArrow(direction: string) {
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    lowestYValue = 0
+    // stops from adding score, if array is equal or less than length zero
+    if (upArrow.length <= 0) {
+        return
+    }
+    // getting y value from Arrow
+    for (let i = 0; i <= upArrow.length - 1; i++) {
+        if (lowestYValue < upArrow[i].y) {
+            lowestYValue = upArrow[i].y
+            upArrow.removeAt(i)
+        }
+    }
+    // scoring
+    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
+    // animation
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
+    scoreboard2.setImage(assets.image`sc2animated`)
+    pause(200)
+    scoreboard2.setImage(assets.image`scoreboardBackground`)
+})
+function sendArrow (direction: string) {
     arrowSprite = sprites.create(img`
         1 
         `, SpriteKind.Arrow)
@@ -25,90 +46,7 @@ function sendArrow(direction: string) {
     arrowSprite.y = 0
     arrowSprite.vy = 60
 }
-
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    lowestYValue = 0
-    //stops from adding score, if array is equal or less than length zero
-    if (upArrow.length <= 0) {
-        return;
-    }
-    //getting y value from Arrow
-    for (let i = 0; i < upArrow.length; i++) {
-        if (lowestYValue < upArrow[i].y) {
-            lowestYValue = upArrow[i].y
-            upArrow.removeAt(i)
-        }
-    }
-    //scoring
-    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
-    //animation
-    scoreboard2.setImage(assets.image`scoreboardBackground`)
-    scoreboard2.setImage(assets.image`sc2animated`)
-    pause(200)
-    scoreboard2.setImage(assets.image`scoreboardBackground`)
-})
-
-controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-    lowestYValue = 0
-    if (downArrow.length <= 0) {
-        return;
-    }
-    for (let i = 0; i < downArrow.length; i++) {
-        if (lowestYValue < downArrow[i].y) {
-            lowestYValue = downArrow[i].y
-            downArrow.removeAt(i)
-        }
-    }
-    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
-    scoreboard3.setImage(assets.image`scoreboardBackground`)
-    scoreboard3.setImage(assets.image`sc3animated`)
-    pause(200)
-    scoreboard3.setImage(assets.image`scoreboardBackground`)
-})
-
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    lowestYValue = 0
-    if (rightArrow.length <= 0) {
-        return;
-    }
-    for (let i = 0; i < rightArrow.length; i++) {
-        if (lowestYValue < rightArrow[i].y) {
-            lowestYValue = rightArrow[i].y
-            rightArrow.removeAt(i)
-        }
-    }
-    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
-    scoreboard4.setImage(assets.image`scoreboardBackground`)
-    scoreboard4.setImage(assets.image`sc4animated`)
-    pause(200)
-    scoreboard4.setImage(assets.image`scoreboardBackground`)
-
-})
-
-
-
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    lowestYValue = 0
-    if (leftArrow.length <= 0){
-        return;
-    }
-    for (let i = 0; i < leftArrow.length; i++) {  
-        if (lowestYValue < leftArrow[i].y) {
-            lowestYValue = leftArrow[i].y
-            leftArrow.removeAt(i)
-        }
-    }
-
-    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
-    scoreboard1.setImage(assets.image`scoreboardBackground`)
-    scoreboard1.setImage(assets.image`sc1animated`)
-    pause(200)
-    scoreboard1.setImage(assets.image`scoreboardBackground`)
- 
-})
-
-
-function startGame() {
+function startGame () {
     // let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
     scene.setBackgroundColor(9)
     scoreboard1 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
@@ -121,10 +59,61 @@ function startGame() {
     scoreboard4.setPosition(140, 80)
     info.setScore(0)
 }
-function startLevelOne() {
-
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    lowestYValue = 0
+    if (leftArrow.length <= 0) {
+        return
+    }
+    for (let l = 0; l <= leftArrow.length - 1; l++) {
+        if (lowestYValue < leftArrow[l].y) {
+            lowestYValue = leftArrow[l].y
+            leftArrow.removeAt(l)
+        }
+    }
+    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
+    scoreboard1.setImage(assets.image`scoreboardBackground`)
+    scoreboard1.setImage(assets.image`sc1animated`)
+    pause(200)
+    scoreboard1.setImage(assets.image`scoreboardBackground`)
+})
+function startLevelOne () {
+	
 }
-function startLevelZero() {
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    lowestYValue = 0
+    if (rightArrow.length <= 0) {
+        return
+    }
+    for (let k = 0; k <= rightArrow.length - 1; k++) {
+        if (lowestYValue < rightArrow[k].y) {
+            lowestYValue = rightArrow[k].y
+            rightArrow.removeAt(k)
+        }
+    }
+    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
+    scoreboard4.setImage(assets.image`scoreboardBackground`)
+    scoreboard4.setImage(assets.image`sc4animated`)
+    pause(200)
+    scoreboard4.setImage(assets.image`scoreboardBackground`)
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    lowestYValue = 0
+    if (downArrow.length <= 0) {
+        return
+    }
+    for (let j = 0; j <= downArrow.length - 1; j++) {
+        if (lowestYValue < downArrow[j].y) {
+            lowestYValue = downArrow[j].y
+            downArrow.removeAt(j)
+        }
+    }
+    info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
+    scoreboard3.setImage(assets.image`scoreboardBackground`)
+    scoreboard3.setImage(assets.image`sc3animated`)
+    pause(200)
+    scoreboard3.setImage(assets.image`scoreboardBackground`)
+})
+function startLevelZero () {
     arrowList.removeAt(0)
     leftArrow.removeAt(0)
     upArrow.removeAt(0)
@@ -138,18 +127,19 @@ function startLevelZero() {
     pause(750)
     sendArrow("right")
 }
-let leftArrow: Sprite[] = []
-let upArrow: Sprite[] = []
-let downArrow: Sprite[] = []
-let rightArrow: Sprite[] = []
-let arrowList = [0]
-let lowestYValue: number = 0
-let easynessToGetPerfect = 3
 let scoreboard4: Sprite = null
 let scoreboard3: Sprite = null
-let scoreboard2: Sprite = null
 let scoreboard1: Sprite = null
+let rightArrow: Sprite[] = []
+let downArrow: Sprite[] = []
+let leftArrow: Sprite[] = []
 let arrowSprite: Sprite = null
+let scoreboard2: Sprite = null
+let upArrow: Sprite[] = []
+let lowestYValue = 0
+let easynessToGetPerfect = 0
+let arrowList: number[] = []
+arrowList = [0]
+easynessToGetPerfect = 3
 startGame()
 startLevelZero()
-
