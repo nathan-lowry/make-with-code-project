@@ -25,7 +25,7 @@ function sendArrow (direction: string) {
         rightArrow.push(arrowSprite)
     }
     arrowSprite.y = 0
-    arrowSprite.vy = 60
+    arrowSprite.vy = 80
 }
 function startGame () {
     // let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
@@ -93,6 +93,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 function startLevelOne () {
     pause(1000)
     music.play(music.createSong(assets.song`firstSong`), music.PlaybackMode.LoopingInBackground)
+
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     lowestYValue = 0
@@ -102,6 +103,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let i = 0; i < rightArrow.length; i++) {
         if (lowestYValue < rightArrow[i].y) {
             lowestYValue = rightArrow[i].y
+           
 
         }
         if (i == rightArrow.length - 1) {
@@ -135,19 +137,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     scoreboard3.setImage(assets.image`scoreboardBackground`)
 })
 function startLevelZero () {
-    sendArrow("left")
-    pause(500)
-    sendArrow("down")
-    pause(500)
-    sendArrow("up")
-    pause(500)
-    sendArrow("right")
-    pause(500)
-    sendArrow("right")
-    pause(500)
-    sendArrow("right")
-    pause(500)
-        
+
 }
 let scoreboard4: Sprite = null
 let scoreboard3: Sprite = null
@@ -165,5 +155,10 @@ arrowList = [0]
 easynessToGetPerfect = 3
 
 startGame()
+startLevelZero()
+
+
+
 //startLevelZero()
 startLevelOne()
+
