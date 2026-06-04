@@ -75,7 +75,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (leftArrow.length <= 0) {
         return
     }
-    for (let i = 0; i < upArrow.length; i++) {
+    for (let i = 0; i < leftArrow.length; i++) {
         if (lowestYValue < leftArrow[i].y) {
             lowestYValue = leftArrow[i].y
     
@@ -91,7 +91,16 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     scoreboard1.setImage(assets.image`scoreboardBackground`)
 })
 function startLevelOne () {
-    pause(1000)
+    sendArrow("left")
+    pause(160)
+    pause(160)
+    sendArrow("right")
+    pause(160)
+    pause(170)
+    sendArrow("down")
+    pause(170)
+    sendArrow("up")
+    pause(180)
     music.play(music.createSong(assets.song`firstSong`), music.PlaybackMode.LoopingInBackground)
 
 }
@@ -161,4 +170,3 @@ startLevelZero()
 
 //startLevelZero()
 startLevelOne()
-
