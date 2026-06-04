@@ -91,7 +91,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     scoreboard1.setImage(assets.image`scoreboardBackground`)
 })
 function startLevelOne () {
-	
+    pause(1000)
+    music.play(music.createSong(assets.song`firstSong`), music.PlaybackMode.LoopingInBackground)
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     lowestYValue = 0
@@ -162,5 +163,7 @@ let easynessToGetPerfect = 0
 let arrowList: number[] = []
 arrowList = [0]
 easynessToGetPerfect = 3
+
 startGame()
-startLevelZero()
+//startLevelZero()
+startLevelOne()
