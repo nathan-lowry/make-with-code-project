@@ -95,18 +95,26 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function startLevelOne () {
     sendArrow("left")
-    pause(160)
-    pause(160)
+    pause(320)
     sendArrow("right")
-    pause(160)
-    pause(170)
+    pause(320)
     sendArrow("down")
-    pause(170)
+    pause(160)
     sendArrow("up")
-    pause(180)
+    pause(200)
     music.play(music.createSong(assets.song`firstSong`), music.PlaybackMode.LoopingInBackground)
+    pause(640)
+    sendArrow("left")
+    pause(1440)
+    sendArrow("left")
+    pause(320)
+    sendArrow("right")
+    pause(320)
+    sendArrow("down")
+    pause(160)
     sendArrow("up")
-
+    pause(800)
+    sendArrow("left")
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     lowestYValue = 0
