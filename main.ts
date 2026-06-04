@@ -2,7 +2,7 @@ namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
 
-function sendArrow (direction: string) {
+function sendArrow(direction: string) {
     arrowSprite = sprites.create(img`
         1 
         `, SpriteKind.Arrow)
@@ -27,7 +27,7 @@ function sendArrow (direction: string) {
     arrowSprite.y = 0
     arrowSprite.vy = 80
 }
-function startGame () {
+function startGame() {
     // let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
     scene.setBackgroundColor(9)
     scoreboard1 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
@@ -52,11 +52,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let i = 0; i < upArrow.length; i++) {
         if (lowestYValue < upArrow[i].y) {
             lowestYValue = upArrow[i].y
- 
+            //inverts sprites image
+            upArrow[i].setImage(assets.image`upArrow-B`)
+
         }
-       if (i == upArrow.length -1){
+        if (i == upArrow.length - 1) {
             upArrow.removeAt(i)
-       }
+        }
     }
     // scoring
     //80-lowestYValue is the position of the circle - position of the arrow
@@ -78,7 +80,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let i = 0; i < leftArrow.length; i++) {
         if (lowestYValue < leftArrow[i].y) {
             lowestYValue = leftArrow[i].y
-    
+            leftArrow[i].setImage(assets.image`leftArrow-B`)
+
         }
         if (i == leftArrow.length - 1) {
             leftArrow.removeAt(i)
@@ -102,6 +105,7 @@ function startLevelOne () {
     sendArrow("up")
     pause(180)
     music.play(music.createSong(assets.song`firstSong`), music.PlaybackMode.LoopingInBackground)
+    sendArrow("up")
 
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -112,7 +116,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let i = 0; i < rightArrow.length; i++) {
         if (lowestYValue < rightArrow[i].y) {
             lowestYValue = rightArrow[i].y
-           
+            rightArrow[i].setImage(assets.image`rightArrow-B`)
 
         }
         if (i == rightArrow.length - 1) {
@@ -133,6 +137,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let i = 0; i < downArrow.length; i++) {
         if (lowestYValue < downArrow[i].y) {
             lowestYValue = downArrow[i].y
+            downArrow[i].setImage(assets.image`downArrow-B`)
 
         }
         if (i == downArrow.length - 1) {
@@ -145,7 +150,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     pause(200)
     scoreboard3.setImage(assets.image`scoreboardBackground`)
 })
-function startLevelZero () {
+function startLevelZero() {
 
 }
 let scoreboard4: Sprite = null
