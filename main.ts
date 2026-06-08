@@ -61,6 +61,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (targetArrow !== null && targetIndex !== -1) {
         //inverts sprites image
         targetArrow.setImage(assets.image`upArrows-B`)
+        targetArrow.startEffect(effects.rings)
         upArrow.removeAt(targetIndex)
     }
     // scoring
@@ -91,6 +92,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (targetArrow !== null && targetIndex !== -1) {
         targetArrow.setImage(assets.image`leftArrow-B`)
+        targetArrow.startEffect(effects.rings)
         leftArrow.removeAt(targetIndex)
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
@@ -138,6 +140,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (targetArrow !== null && targetIndex !== -1) {
         targetArrow.setImage(assets.image`rightArrow-B`)
+        targetArrow.startEffect(effects.rings)
         rightArrow.removeAt(targetIndex)
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
@@ -162,6 +165,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
     if (targetArrow !== null && targetIndex !== -1) {
         targetArrow.setImage(assets.image`downArrow-B`)
+        targetArrow.startEffect(effects.rings)
         downArrow.removeAt(targetIndex)
 
     }
