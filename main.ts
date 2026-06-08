@@ -159,6 +159,48 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     scoreboard3.setImage(assets.image`scoreboardBackground`)
 })
 function startLevelZero() {
+    sendArrow("left")
+    pause(500)
+    music.play(music.createSong(assets.song`secondSong`), music.PlaybackMode.InBackground)
+    sendArrow("right")
+    pause(500)
+    sendArrow("left")
+    pause(500)
+    sendArrow("right")
+    pause(500)
+    sendArrow("left")
+    pause(500)
+    sendArrow("right")
+    pause(600)
+    sendArrow("left")
+    pause(700)
+    sendArrow("left")
+    pause(600)
+    sendArrow("down")
+    pause(700)
+    sendArrow("right")
+    pause(600)
+    sendArrow("left")
+    pause(600)
+    sendArrow("right")
+    pause(600)
+    sendArrow("up")
+    pause(600)
+    sendArrow("down")
+    pause(600)
+    sendArrow("down")
+    pause(600)
+    sendArrow("up")
+    pause(600)
+    sendArrow("down")
+    pause(600)
+    sendArrow("up")
+    pause(600)
+    sendArrow("up")
+    pause(600)
+    sendArrow("down")
+    pause(600)
+    sendArrow("up")
 
 }
 let scoreboard4: Sprite = null
@@ -177,7 +219,7 @@ arrowList = [0]
 easynessToGetPerfect = 3
 
 startGame()
-startLevelZero()
+// startLevelZero()
 
 
 
