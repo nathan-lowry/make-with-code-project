@@ -1,5 +1,5 @@
- 
-
+Planning document:
+https://docs.google.com/document/d/1fXC8aQjqSurHwTTh5E6-ZgsXd4DkewlBWxc0K9S64q0/edit?usp=sharing
 
 > Open this page at [https://nathan-lowry.github.io/make-with-code-project/](https://nathan-lowry.github.io/make-with-code-project/)
 
