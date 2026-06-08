@@ -47,18 +47,21 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (upArrow.length <= 0) {
         return
     }
+    let targetIndex = -1
+    let targetArrow: Sprite = null
     // getting y value from Arrow, if greater than current lowestYValue
     // when it is done, it removes the closest  arrow to the cricle from the array
     for (let i = 0; i < upArrow.length; i++) {
-        if (lowestYValue < upArrow[i].y) {
+        if (upArrow[i].y > lowestYValue) {
             lowestYValue = upArrow[i].y
-            //inverts sprites image
-            upArrow[i].setImage(assets.image`upArrow-B`)
-
+            targetArrow = upArrow[i]
+            targetIndex = i
         }
-        if (i == upArrow.length - 1) {
-            upArrow.removeAt(i)
-        }
+    }
+    if (targetArrow !== null && targetIndex !== -1) {
+        //inverts sprites image
+        targetArrow.setImage(assets.image`upArrows-B`)
+        upArrow.removeAt(targetIndex)
     }
     // scoring
     //80-lowestYValue is the position of the circle - position of the arrow
@@ -77,15 +80,18 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (leftArrow.length <= 0) {
         return
     }
+    let targetIndex = -1
+    let targetArrow: Sprite = null
     for (let i = 0; i < leftArrow.length; i++) {
-        if (lowestYValue < leftArrow[i].y) {
+        if (leftArrow[i].y > lowestYValue) {
             lowestYValue = leftArrow[i].y
-            leftArrow[i].setImage(assets.image`leftArrow-B`)
-
+            targetArrow = leftArrow[i]
+            targetIndex = i
         }
-        if (i == leftArrow.length - 1) {
-            leftArrow.removeAt(i)
-        }
+    }
+    if (targetArrow !== null && targetIndex !== -1) {
+        targetArrow.setImage(assets.image`leftArrow-B`)
+        leftArrow.removeAt(targetIndex)
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
     scoreboard1.setImage(assets.image`scoreboardBackground`)
@@ -93,7 +99,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     pause(200)
     scoreboard1.setImage(assets.image`scoreboardBackground`)
 })
-function startLevelOne () {
+function startLevelOne() {
     sendArrow("left")
     pause(320)
     sendArrow("right")
@@ -121,15 +127,18 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (rightArrow.length <= 0) {
         return
     }
+    let targetIndex = -1
+    let targetArrow: Sprite = null
     for (let i = 0; i < rightArrow.length; i++) {
-        if (lowestYValue < rightArrow[i].y) {
+        if (rightArrow[i].y > lowestYValue) {
             lowestYValue = rightArrow[i].y
-            rightArrow[i].setImage(assets.image`rightArrow-B`)
-
+            targetArrow = rightArrow[i]
+            targetIndex = i
         }
-        if (i == rightArrow.length - 1) {
-            rightArrow.removeAt(i)
-        }
+    }
+    if (targetArrow !== null && targetIndex !== -1) {
+        targetArrow.setImage(assets.image`rightArrow-B`)
+        rightArrow.removeAt(targetIndex)
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
     scoreboard4.setImage(assets.image`scoreboardBackground`)
@@ -142,15 +151,19 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     if (downArrow.length <= 0) {
         return
     }
+    let targetIndex = -1
+    let targetArrow: Sprite = null
     for (let i = 0; i < downArrow.length; i++) {
-        if (lowestYValue < downArrow[i].y) {
+        if (downArrow[i].y > lowestYValue) {
             lowestYValue = downArrow[i].y
-            downArrow[i].setImage(assets.image`downArrow-B`)
+            targetArrow = downArrow[i]
+            targetIndex = i
+        }
+    }
+    if (targetArrow !== null && targetIndex !== -1) {
+        targetArrow.setImage(assets.image`downArrow-B`)
+        downArrow.removeAt(targetIndex)
 
-        }
-        if (i == downArrow.length - 1) {
-            downArrow.removeAt(i)
-        }
     }
     info.changeScoreBy(100 / (1 + Math.abs((80 - lowestYValue) / easynessToGetPerfect)))
     scoreboard3.setImage(assets.image`scoreboardBackground`)
