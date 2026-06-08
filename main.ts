@@ -218,10 +218,18 @@ let arrowList: number[] = []
 arrowList = [0]
 easynessToGetPerfect = 3
 
+function levelSelector() {
+    let level = 0;
+    while (level < 1 || level > 2) {
+        level = game.askForNumber("What level do you want? (1,2)")
+    }
+
+    if (level === 2) {
+        startLevelZero()
+    } else if (level === 1) {
+        startLevelOne()
+    }
+}
+
 startGame()
-// startLevelZero()
-
-
-
-//startLevelZero()
-startLevelOne()
+levelSelector()
