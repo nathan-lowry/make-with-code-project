@@ -221,7 +221,7 @@ easynessToGetPerfect = 3
 function levelSelector() {
     let level = 0;
     while (level < 1 || level > 2) {
-        level = game.askForNumber("What level do you want? (1,2)")
+        level = game.askForNumber("Choose a level (1, 2):", 1)
     }
 
     if (level === 2) {
